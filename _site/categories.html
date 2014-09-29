@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>多多的博客</title>
+    <meta name="description" content="This is AngelaDuoduo's blog
+">
+
+    <link rel="stylesheet" href="/css/reset.css" />
+	<link rel="stylesheet" href="/css/mysite.css" />
+	<link rel="stylesheet" href="/css/navigator.css" />
+	<link rel="stylesheet" href="/css/content.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="/js/navigator.js"></script>
+</head>
+
+
+  <body>
+
+    <div class="site-navigator">
+
+  <div class="wrapper">
+  
+	<div id="headPic"><img src="/images/myPicture.png" /></div>
+	<a class="site-title" href="/">多多的博客</a>
+    
+	<nav class="site-nav">
+      <div class="trigger">
+        <div class="page-link home"><a href="/">Home</a></div>
+		<div class="page-link category"><a href="#">Category</a></div>
+		<ul class="blog-category">
+			
+			<li class="blog-category-link" id="test3"><a href="/categories.html?cat=test3">test3</a></li>
+			
+			<li class="blog-category-link" id="test2"><a href="/categories.html?cat=test2">test2</a></li>
+			
+			<li class="blog-category-link" id="test1"><a href="/categories.html?cat=test1">test1</a></li>
+			
+		</ul>
+		<div class="page-link about"><a href="/about.html">About</a></div>
+      </div>
+    </nav>
+	
+	<footer>
+		<div class="footer-link"><a href="http://github.com/">My Github</a></div>
+		<div class="footer-link"><a href="http://weibo.com/dxshatangju">My Sina Weibo</a></div>
+		<div class="footer-link">dxshatangju@foxmail.com</div>
+	</footer>
+  </div>
+</div>
+<script>
+$(".category").click(function() {
+	$(".page-link a").removeClass("current-link");
+	$(".page-link.category a").addClass("current-link");	
+});
+</script>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="home">
+
+  <h1 class="page-heading"><i></i></h1> 
+  <ul class="post-list">
+  </ul>   
+</div>
+<script>
+	$(".page-link a").removeClass("current-link");
+	$(".page-link.category a").addClass("current-link");	
+	curTag = window.location.search.match(/cat=(.+)/)[1];
+	$(".page-heading i").text(curTag);
+	if (curTag) {
+		
+		var dataStr = '{ "test3":[{"url":"/test3/2014/09/25/hello-world.html", "title":"我的第一篇博客", "date":"25/09/2014"}],"test2":[{"url":"/test2/2014/09/28/dingxin.html", "title":"我的第四篇博客", "date":"28/09/2014"}],"test1":[{"url":"/test1/2014/09/28/weijing.html", "title":"我的第二篇博客", "date":"28/09/2014"},{"url":"/test1/2014/09/28/gaoliangliang.html", "title":"我的第三篇博客", "date":"28/09/2014"}] }',
+		data = JSON.parse(dataStr),
+		archieves = data[curTag];
+		
+		for (var i = 0, size = archieves.length; i < size; i++) {
+			$(".post-list").append('<li><h2><a class="post-link" href="' + archieves[i].url + '">'+ archieves[i].title + '</a>'+
+			'<span class="post-meta">' + archieves[i].date + '</span></h2></li>');
+		}
+		$(".blog-category").show();
+		$(".blog-category-link a").removeClass("current-link");
+		$(".blog-category-link#" + curTag + " a").addClass("current-link");
+		
+	}
+ </script>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>多多的博客</title>
+    <description>This is AngelaDuoduo&#39;s blog
+</description>
+    <link>http://angelaDuoduo.com/</link>
+    <atom:link href="http://angelaDuoduo.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 29 Sep 2014 18:47:28 +0800</pubDate>
+    <lastBuildDate>Mon, 29 Sep 2014 18:47:28 +0800</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>我的第二篇博客</title>
+        <description>&lt;p&gt;又来测试了哦呵呵呵呵&lt;br /&gt;
+换个高大上的名字会怎么样...&lt;br /&gt;
+为什么它看起来这么山寨呢。。。&lt;br /&gt;
+为什么55555&lt;/p&gt;
+
+
+</description>
+        <pubDate>Sun, 28 Sep 2014 00:00:00 +0800</pubDate>
+        <link>http://angelaDuoduo.com/test1/2014/09/28/weijing.html</link>
+        <guid isPermaLink="true">http://angelaDuoduo.com/test1/2014/09/28/weijing.html</guid>
+        
+        
+        <category>test1</category>
+        
+      </item>
+    
+      <item>
+        <title>我的第三篇博客</title>
+        <description>&lt;p&gt;这篇博客还是用来测试的啊啊啊啊啊啊啊&lt;br /&gt;
+为什么它看起来这么山寨呢。。。&lt;br /&gt;
+为什么55555&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 28 Sep 2014 00:00:00 +0800</pubDate>
+        <link>http://angelaDuoduo.com/test1/2014/09/28/gaoliangliang.html</link>
+        <guid isPermaLink="true">http://angelaDuoduo.com/test1/2014/09/28/gaoliangliang.html</guid>
+        
+        
+        <category>test1</category>
+        
+      </item>
+    
+      <item>
+        <title>我的第四篇博客</title>
+        <description>&lt;p&gt;这篇博客也是用来测试的啊啊啊啊啊啊啊&lt;br /&gt;
+为什么它看起来这么山寨呢。。。&lt;br /&gt;
+为什么55555&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 28 Sep 2014 00:00:00 +0800</pubDate>
+        <link>http://angelaDuoduo.com/test2/2014/09/28/dingxin.html</link>
+        <guid isPermaLink="true">http://angelaDuoduo.com/test2/2014/09/28/dingxin.html</guid>
+        
+        
+        <category>test2</category>
+        
+      </item>
+    
+      <item>
+        <title>我的第一篇博客</title>
+        <description>&lt;p&gt;这篇博客就是用来测试的啊啊啊啊啊啊啊&lt;br /&gt;
+为什么它看起来这么山寨呢。。。&lt;br /&gt;
+为什么55555
+&lt;/p&gt;
+	
+
+</description>
+        <pubDate>Thu, 25 Sep 2014 00:00:00 +0800</pubDate>
+        <link>http://angelaDuoduo.com/test3/2014/09/25/hello-world.html</link>
+        <guid isPermaLink="true">http://angelaDuoduo.com/test3/2014/09/25/hello-world.html</guid>
+        
+        
+        <category>test3</category>
+        
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>多多的博客</title>
+    <meta name="description" content="This is AngelaDuoduo's blog
+">
+
+    <link rel="stylesheet" href="/css/reset.css" />
+	<link rel="stylesheet" href="/css/mysite.css" />
+	<link rel="stylesheet" href="/css/navigator.css" />
+	<link rel="stylesheet" href="/css/content.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="/js/navigator.js"></script>
+</head>
+
+
+  <body>
+
+    <div class="site-navigator">
+
+  <div class="wrapper">
+  
+	<div id="headPic"><img src="/images/myPicture.png" /></div>
+	<a class="site-title" href="/">多多的博客</a>
+    
+	<nav class="site-nav">
+      <div class="trigger">
+        <div class="page-link home"><a href="/">Home</a></div>
+		<div class="page-link category"><a href="#">Category</a></div>
+		<ul class="blog-category">
+			
+			<li class="blog-category-link" id="test3"><a href="/categories.html?cat=test3">test3</a></li>
+			
+			<li class="blog-category-link" id="test2"><a href="/categories.html?cat=test2">test2</a></li>
+			
+			<li class="blog-category-link" id="test1"><a href="/categories.html?cat=test1">test1</a></li>
+			
+		</ul>
+		<div class="page-link about"><a href="/about.html">About</a></div>
+      </div>
+    </nav>
+	
+	<footer>
+		<div class="footer-link"><a href="http://github.com/">My Github</a></div>
+		<div class="footer-link"><a href="http://weibo.com/dxshatangju">My Sina Weibo</a></div>
+		<div class="footer-link">dxshatangju@foxmail.com</div>
+	</footer>
+  </div>
+</div>
+<script>
+$(".category").click(function() {
+	$(".page-link a").removeClass("current-link");
+	$(".page-link.category a").addClass("current-link");	
+});
+</script>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="home">
+
+  <h1 class="page-heading"><i>Index</i></h1>
+
+  <ul class="post-list">
+    
+      <li>
+        <h2>
+          <a class="post-link" href="/test1/2014/09/28/weijing.html">我的第二篇博客</a>
+		  <span class="post-meta">2014-09-28</span>
+        </h2>
+		<p><p>又来测试了哦呵呵呵呵<br />
+换个高大上的名字会怎么样...<br />
+为什么它看起来这么山寨呢。。。<br />
+为什么55555</p>
+
+</p>
+      </li>
+    
+      <li>
+        <h2>
+          <a class="post-link" href="/test1/2014/09/28/gaoliangliang.html">我的第三篇博客</a>
+		  <span class="post-meta">2014-09-28</span>
+        </h2>
+		<p><p>这篇博客还是用来测试的啊啊啊啊啊啊啊<br />
+为什么它看起来这么山寨呢。。。<br />
+为什么55555</p>
+
+</p>
+      </li>
+    
+      <li>
+        <h2>
+          <a class="post-link" href="/test2/2014/09/28/dingxin.html">我的第四篇博客</a>
+		  <span class="post-meta">2014-09-28</span>
+        </h2>
+		<p><p>这篇博客也是用来测试的啊啊啊啊啊啊啊<br />
+为什么它看起来这么山寨呢。。。<br />
+为什么55555</p>
+
+</p>
+      </li>
+    
+      <li>
+        <h2>
+          <a class="post-link" href="/test3/2014/09/25/hello-world.html">我的第一篇博客</a>
+		  <span class="post-meta">2014-09-25</span>
+        </h2>
+		<p><p>这篇博客就是用来测试的啊啊啊啊啊啊啊<br />
+为什么它看起来这么山寨呢。。。<br />
+为什么55555
+</p>
+	
+
+</p>
+      </li>
+    
+  </ul>
+  <div class="pagin">
+	  
+    </div>
+</div>
+<script>
+	$(".page-link a").removeClass("current-link");
+	$(".page-link.home a").addClass("current-link");
+</script>
+
+      </div>
+    </div>
+  </body>
+
+</html>
