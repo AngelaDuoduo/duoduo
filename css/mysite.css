@@ -1,0 +1,37 @@
+body {
+	font-family: "宋体", "Lucida Grande", "Lucida Sans Unicode", Verdana, Geneva, sans-serif;
+	text-align: center;
+	position: relative;
+	height: 100%;
+}
+a{
+	text-decoration: none;
+	cursor: pointer;
+}
+.site-navigator {
+	width: 30%;
+	height: 100%;
+	
+	position: fixed;
+	left: 0;
+	top: 0;	
+	
+	display: inline-block;	
+	
+	background-color: #444857;	
+}
+.page-content {
+	width: 70%;
+	min-height: 100%;	
+	
+	position: absolute;
+	left:30%;	
+	top: 0;	
+	
+	display: inline-block;
+	vertical-align: top;
+	
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.2),  inset 0 0 20px rgba(0, 0, 0, 0.1);
+	text-align: left;
+}

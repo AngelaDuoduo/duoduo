@@ -1,0 +1,33 @@
+<div class="site-navigator">
+
+  <div class="wrapper">
+  
+	<div id="headPic"><img src="{{'/images/myPicture.png'}}" /></div>
+	<a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    
+	<nav class="site-nav">
+      <div class="trigger">
+        <div class="page-link home"><a href="{{site.baseurl}}/">Home</a></div>
+		<div class="page-link category"><a href="#">Category</a></div>
+		<ul class="blog-category">
+			{% for category in site.categories %}
+			<li class="blog-category-link" id="{{category | first}}"><a href="/categories.html?cat={{category | first}}">{{category | first}}</a></li>
+			{% endfor %}
+		</ul>
+		<div class="page-link about"><a href="{{'/about.html' | prepend: site.baseurl}}">About</a></div>
+      </div>
+    </nav>
+	
+	<footer>
+		<div class="footer-link"><a href="{{ site.github_name | prepend: 'http://github.com/'}}">My Github</a></div>
+		<div class="footer-link"><a href="http://weibo.com/dxshatangju">My Sina Weibo</a></div>
+		<div class="footer-link">{{site.email}}</div>
+	</footer>
+  </div>
+</div>
+<script>
+$(".category").click(function() {
+	$(".page-link a").removeClass("current-link");
+	$(".page-link.category a").addClass("current-link");	
+});
+</script>

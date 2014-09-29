@@ -1,0 +1,95 @@
+.home {
+	letter-spacing: 1px;
+}
+.page-heading {
+	font-size: 36px;
+	text-align: center;
+	margin: 30px;
+	text-shadow: 1px 0px 3px rgba(0, 0, 0, 0.8),
+				0px 1px 3px rgba(0, 0, 0, 0.8),
+				1px 2px 3px rgba(0, 0, 0, 0.8)),
+				2px 1px 3px rgba(0, 0, 0, 0.8);
+}
+.post-list li {
+	display: block;
+	width: 90%;
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 0;
+	margin-left: 5%;
+	margin-bottom: 2%;
+	border-radius: 5px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.post-list li h2{
+	line-height: 1.5;
+	border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+	background-color: #dce6f2;
+	padding: 5px;
+	padding-left: 10px;
+	border-radius: 5px 5px 0 0;
+}
+.post-list li h2 .post-link{
+	font-size: 20px;
+	font-weight: 800;
+	color: black;
+}
+.post-list li h2 .post-meta{
+	font-size: 14px;
+	font-weight:400px;
+	color: rgba(0, 0, 0, 0.3);
+}
+.post-list li p {
+	padding: 10px;
+	font-size: 16px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+.pagin {
+	margin-left: 5%;
+	overflow: hidden;
+}
+.pagin-link {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #444857;
+	float: left;
+	border: 1px solid #dce6f2;
+	border-radius: 20px;
+}
+.pagin-link a {
+	color: #aeadbb;
+	font-weight: 800;
+}
+.pagin-link a:hover{
+	color: #e87015;
+}
+
+.blog {
+	width: 90%;
+}
+.blog h2 {
+	line-height: 1.5;
+	border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+	background-color: #dce6f2;
+	padding: 5px;
+	padding-left: 10px;
+	margin-top: 30px;
+}
+.blog h2 .post-link{
+	font-size: 20px;
+	font-weight: 800;
+	color: black;
+}
+.blog h2 .post-meta {
+	font-size: 14px;
+	font-weight:400px;
+	color: rgba(0, 0, 0, 0.3);
+}
+.blog .blog-content {
+	padding: 30px;
+	font-size: 16px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+

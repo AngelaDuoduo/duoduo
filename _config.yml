@@ -1,1 +1,15 @@
-baseurl: /duoduo
+# Site settings
+title: 多多的博客
+email: dxshatangju@foxmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  This is AngelaDuoduo's blog
+baseurl: "" # the subpath of your site, e.g. /blog/
+encoding: utf-8
+url: "http://angelaDuoduo.com" # the base hostname & protocol for your site
+github_username:  AngelaDuoduo
+
+# Build settings
+markdown: kramdown
+paginate: 10
+paginate_path: "page:num"
+

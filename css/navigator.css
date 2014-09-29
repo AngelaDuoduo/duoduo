@@ -1,0 +1,70 @@
+.site-navigator .wrapper {
+	font-family: "Microsoft YaHei";
+	height: 100%;
+	position: relative;	
+}
+#headPic {
+	width: 150px;
+	height: 150px;
+	margin: 40px auto;
+	box-shadow: 0 0 3px black;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.site-title {
+	color: #aeadbb;
+	font-size: 30px;
+	margin: 20px 0;
+}
+.site-nav {
+  letter-spacing: 1px;
+  width: 200px;
+  margin: 50px auto;
+}
+.page-link {	
+	margin: 10px 0;
+	padding: 5px 0;
+	border: 3px solid #aeadbb;
+	border-radius: 12px;
+}
+.page-link a{
+	color: #aeadbb;	
+}
+.page-link a:hover {
+	color: #e87015;
+}
+.blog-category {
+	display: none;
+	letter-spacing: 1px;
+	width: 150px;
+	margin: 10px auto;
+}
+.blog-category-link {
+	margin: 10px;
+	padding: 3px 0;
+	border: 1px solid #aeadbb;
+	border-radius: 6px;
+}
+.blog-category-link a{
+	color: #aeadbb;	
+}
+.page-link .current-link,
+.blog-category-link .current-link{
+	color: #e87015;
+}
+footer {
+	position: absolute;
+	bottom: 20%;
+	width: 100%;
+}
+.footer-link {
+	padding: 5px 0;
+	color: #e87015;
+}
+.footer-link a{
+	color: #aeadbb;
+}
+.footer-link a:hover {
+	color: #e87015;
+}
+

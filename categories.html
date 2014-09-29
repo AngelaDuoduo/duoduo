@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading"><i></i></h1> 
+  <ul class="post-list">
+  </ul>   
+</div>
+<script>
+	$(".page-link a").removeClass("current-link");
+	$(".page-link.category a").addClass("current-link");	
+	curTag = window.location.search.match(/cat=(.+)/)[1];
+	$(".page-heading i").text(curTag);
+	if (curTag) {
+		
+		var dataStr = '{ {% for cat in site.categories %}{% if cat[0] != site.categories.first[0] %},{% endif %}"{{ cat[0] }}":[{% for post in cat[1] %}{% if post != cat[1].first %},{% endif %}{"url":"{{post.url | prepend: site.baseurl }}", "title":"{{post.title}}", "date":"{{post.date | date:"%d/%m/%Y"}}"}{% endfor %}]{% endfor %} }',
+		data = JSON.parse(dataStr),
+		archieves = data[curTag];
+		
+		for (var i = 0, size = archieves.length; i < size; i++) {
+			$(".post-list").append('<li><h2><a class="post-link" href="' + archieves[i].url + '">'+ archieves[i].title + '</a>'+
+			'<span class="post-meta">' + archieves[i].date + '</span></h2></li>');
+		}
+		$(".blog-category").show();
+		$(".blog-category-link a").removeClass("current-link");
+		$(".blog-category-link#" + curTag + " a").addClass("current-link");
+		
+	}
+ </script>

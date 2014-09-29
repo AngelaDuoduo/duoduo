@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include navigator.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="blog">
+			<h2>
+				<div class="post-link">{{page.title}}</div>
+				<div class="post-meta">{{page.date | date:'%Y-%m-%d'}}</div>
+			</h2>
+			<div class="blog-content">
+			{{content}}
+			</div>
+		</div>
+      </div>
+    </div>
+  </body>
+
+</html>
