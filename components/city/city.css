@@ -1,0 +1,67 @@
+body, html, ul, li, div{
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: consolas, "Microsoft YaHei", Arial, sans-serif;
+	text-align: center;
+}
+.citybox{
+	display: none;
+	background-color: #fff;
+	position: absolute;
+	padding: 3px;
+	padding-bottom: 0;
+	border: 1px solid #ccc;
+	width: 300px;
+	font-size: 14px;
+}
+.citynav{
+	list-style: none;
+	zoom: 1;
+}
+.citynav:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.citynav .tag{
+	float: left;
+	width: 40px;
+	margin-right: 10px;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+}
+.citynav .tag.active{
+	background-color: #ccc;
+}
+.citynav .tag a{
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	color: #007bc4;
+	cursor: pointer;
+}
+.citynav .tag .cityboard{
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	margin-left: -1px;
+
+	width: 286px;
+	min-height: 200px;
+	height: auto!important;
+	height: 200px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+.citynav .tag .cityboard a{
+	float: left;
+	margin-right: 20px;
+	color: #666;
+}
+
+
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片轮播面向对象版</title>
+	<meta charset="utf-8" />
+	<style>
+		html, body, ul, li{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #333;
+			font: 12px Arial, sans-serif;
+			text-align: center;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			display: block;
+		}
+		#pics{
+			margin: 10px auto;
+			width: 490px;
+			height: 170px;
+			border: 10px solid #fff;
+			border-radius: 5px;
+			position: relative;
+			overflow: hidden;
+		}
+		#pics ul.piclist{
+			margin-top: -170px;
+		}
+		#pics ul.piclist li{
+			height: 170px;
+		}
+		#pics img{
+			max-width: 100%;
+		}
+		#pics .index{
+			position: absolute;
+			right: 5px;
+			bottom: 5px;
+		}
+		#pics .index li{
+			float: left;
+			display: inline;
+			margin-right: 3px;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			border-radius: 50%;
+			background-color: #ccc;
+			color: #fff;
+			opacity: 0.7;
+			filter: alpha(opacity=70);
+			cursor: pointer;
+		}
+		#pics .index li.current{
+			background-color: #f90;
+			opacity: 1;
+			filter: alpha(opacity=100);
+		}
+	</style>
+	<script>
+		function AutoPlay(id) {
+			this.id = id;
+			this.dom = document.getElementById(id);
+			this.indexes = this.dom.getElementsByClassName("index")[0].getElementsByTagName("li");
+			this.currentIndex = 0;
+			this.width = 490;
+			this.height = 170;
+			this.count = 5;
+			this.timer = null;
+			this.autoTimer = null;
+		}
+		AutoPlay.prototype = {
+			constructor: AutoPlay,
+			init: function() {
+				this.bind();
+				this.autoPlay();							
+			},
+			bind: function() {
+				var imgs = this.dom.getElementsByTagName("img");
+				var that = this;
+				for (var i = 0; i < this.count; i++) {
+					imgs[i].onmouseover = function() {
+						clearInterval(that.autoTimer);
+					};
+					imgs[i].onmouseout = function() {
+						that.autoPlay();
+					};
+					this.indexes[i].onclick = (function(index) {
+						return function() {
+							clearInterval(that.autoTimer);
+							that.playOnePic(index);
+							that.showIndex(index);
+							that.currentIndex = index;
+							that.autoPlay();
+						}
+					}(i));
+				}
+			},
+			autoPlay: function() {
+				var that = this;
+				this.autoTimer = setInterval(function() {
+					that.currentIndex = (that.currentIndex + 1) % 5;
+					that.playOnePic(that.currentIndex);
+					that.showIndex(that.currentIndex);	
+				}, 3000);
+				
+			},
+			playOnePic: function(index) {
+				var that = this,
+					start = index * this.height,
+					end = start + this.height,
+					speed = this.height / 10,
+					ul = this.dom.getElementsByTagName("ul")[0];
+				this.timer = setInterval(function() {
+					if (start <= end) {
+						ul.style.marginTop = -start + "px";
+						start += speed;
+					} else {
+						clearInterval(that.timer);
+					}
+				}, 30);
+			},
+			showIndex: function(index) {				
+				for (var i = 0; i < this.count; i++) {
+					if (i === index) {
+						this.indexes[i].className = "current";
+					} else {
+						this.indexes[i].className = "";
+					}
+				}
+			}
+		}
+		window.onload = function() {
+			var autoPlay = new AutoPlay("pics");
+			autoPlay.init();
+		}
+	</script>
+</head>
+<body>
+	<div id="pics">
+		<ul class="piclist">
+			<li><img src="http://js.fgm.cc/learn/lesson10/img/05.jpg" /></li>
+			<li><img src="http://js.fgm.cc/learn/lesson10/img/01.jpg" /></li>
+			<li><img src="http://js.fgm.cc/learn/lesson10/img/02.jpg" /></li>
+			<li><img src="http://js.fgm.cc/learn/lesson10/img/03.jpg" /></li>
+			<li><img src="http://js.fgm.cc/learn/lesson10/img/04.jpg" /></li>
+			<li><img src="http://js.fgm.cc/learn/lesson10/img/05.jpg" /></li>
+		</ul>
+		<ul class="index">
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+</body>
+</html>

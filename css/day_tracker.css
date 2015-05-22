@@ -1,0 +1,61 @@
+body{
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	letter-spacing: 1px;
+}
+#wrapper{
+	padding-bottom: 50px;
+}
+ul#days-panel{
+	text-align: center;
+	margin: 0 auto;
+	font-size: 0px;
+	height: 140px;
+}
+ul#days-panel li{
+	display: inline-block;
+	vertical-align: top;
+	background-color: #f1c40f;	
+	padding: 100px 20px 20px 20px;
+	font-size: 20px;
+	color: #f39c12;
+}
+ul#days-panel li.today{
+	padding-top: 250px;
+	padding-left: 18px;
+	border-left: 2px solid rgba(0, 0, 0, 0.5);
+	background-color: #16a085;
+	color: white;
+	text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+#day-board{
+	margin-top: 150px;
+	height: 120px;
+	line-height: 120px;
+	font-size: 28px;
+	text-align: center;
+	color: white;
+	text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.5);
+	background-color: #16a085;
+	border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+}
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px 20px;
+}
+footer a{
+	float: left;
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-left: 10px;
+	color: white;
+	box-shadow:-3px 3px 0 rgba(0, 0, 0, 0.5);
+	background-color: #2980b9;
+}
+footer a[href='#']{
+	background-color: #8e44ad;
+}

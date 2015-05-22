@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自动播放——幻灯片缓冲效果</title>
+<style>
+body,div,ul,li{margin:0;padding:0;}
+li{display: block;}
+ul{list-style-type:none;}
+body{background:#000;text-align:center;font:12px/20px Arial;}
+#box{
+	width: 490px;
+	height: 170px;
+	margin: 10px auto;
+	border: 5px solid #fff;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
+}
+.list li{
+	height: 170px;
+}
+.count{
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
+}
+.count li{
+	float: left;
+	margin-right: 5px;
+	width: 20px;
+	height: 20px;
+	background-color: rgba(200, 200, 200, 0.7);
+	color: #fff;
+	border-radius: 50%;
+}
+.count li.current{
+	background-color: #f60;
+}
+</style>
+<script>
+		window.onload = function() {
+			var oBox = document.getElementById("box");
+			var oUl = oBox.getElementsByTagName("ul")[0];
+			var oList = oUl.getElementsByTagName("li");
+			var first = oList[0];
+			var aImg = oBox.getElementsByTagName("img");
+			var oCount = document.getElementsByClassName(".count");
+			oBtns = oBox.getElementsByTagName("ul")[1].getElementsByTagName("li");
+
+			var picHeight = first.offsetHeight;
+			var speed = picHeight / 10;
+			var currentIndex = 1, totalIndex = 5, totalMarginTop = (totalIndex - 1) * picHeight,
+				currentMarginTop = 0;
+			var timer = null, playTimer = null;
+			var flag = true;
+
+			function moveOnePic() {
+				var count = 0;
+				timer = setInterval(function() {
+					if (flag === true) {
+						currentMarginTop = currentMarginTop + speed;						
+					} else {
+						currentMarginTop = currentMarginTop - speed;
+					}
+					oUl.style.marginTop = -currentMarginTop + "px";
+					count++;					
+					if (count > 9) {
+						clearInterval(timer);
+					}
+				}, 30);
+			}
+
+			function setIndex() {
+				for (var i = 0, len = oBtns.length; i < len; i++) {
+					oBtns[i].className = "";
+				}
+				oBtns[currentIndex - 1].className = "current";
+			}			
+			
+			function play() {
+				moveOnePic();
+				//根据当前序号判断方向				
+				if (currentIndex == 1) {
+					flag = true;	
+				} else if (currentIndex == 5) {
+					flag = false;		
+				}
+				//第五次轮播结束，方向改变。
+				flag ? currentIndex++ :	currentIndex--;
+				//此时currentIndex是下次要播的图的编号
+				setIndex();			
+			}
+
+			playTimer = setInterval(play, 3000);
+		};		
+</script>
+</head>
+<body>
+<div id="box">
+    <div class="list">
+        <ul>
+            <li class="first"><img src="http://js.fgm.cc/learn/lesson7/img/01.jpg" width="490" height="170" /></li>
+            <li><img src="http://js.fgm.cc/learn/lesson7/img/02.jpg" width="490" height="170"/></li>
+            <li><img src="http://js.fgm.cc/learn/lesson7/img/03.jpg" width="490" height="170"/></li>
+            <li><img src="http://js.fgm.cc/learn/lesson7/img/04.jpg" width="490" height="170"/></li>
+            <li><img src="http://js.fgm.cc/learn/lesson7/img/05.jpg" width="490" height="170"/></li>
+        </ul>
+    </div>
+    <ul class="count">
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</body>
+</html>

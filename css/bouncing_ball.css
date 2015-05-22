@@ -1,0 +1,126 @@
+body{
+	background-color: #fff;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	letter-spacing: 1px;
+	height: 100%;
+}
+#wrapper{
+	width: 800px;
+	margin: 0 auto;
+	position: relative;
+	height: 100%;
+}
+#wrapper:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+#message{
+	margin-top: 50px;
+	width: 500px;
+	float: left;
+	line-height: 1.2;
+}
+#message h1{
+	font-size: 28px;
+	margin-bottom: 20px;	
+}
+#message h2{
+	font-size: 20px;
+}
+#ball_container{
+	float: right;
+	width: 300px;
+}
+#ball{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: #329999;
+	
+	-webkit-animation: bounce 2s infinite;
+	-moz-animation: bounce 2s infinite;
+	-o-animation: bounce 2s infinite;
+	-ms-animation: bounce 2s infinite;
+	animation: bounce 2s infinite;
+}
+footer{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	background-color: #329999;
+}
+footer a{
+	color: white;
+	margin-right: 10px;
+	cursor: pointer;
+}
+@-webkit-keyframes bounce{
+	0% {
+		margin-top: 0px;
+		-webkit-animation-timing-function: ease-in;
+	}
+	50% {
+		margin-top: 600px;		
+		-webkit-animation-timing-function: ease-out;
+	}
+	100% {
+		margin-top: 0px;		
+	}
+}
+@-moz-keyframes bounce{
+	0% {
+		margin-top: 0px;
+		-moz-animation-timing-function: ease-in;
+	}
+	50% {
+		margin-top: 600px;		
+		-moz-animation-timing-function: ease-out;
+	}
+	100% {
+		margin-top: 0px;		
+	}
+}
+@-o-keyframes bounce{
+	0% {
+		margin-top: 0px;
+		-o-animation-timing-function: ease-in;
+	}
+	50% {
+		margin-top: 600px;		
+		-o-animation-timing-function: ease-out;
+	}
+	100% {
+		margin-top: 0px;		
+	}
+}
+@-ms-keyframes bounce{
+	0% {
+		margin-top: 0px;
+		-ms-animation-timing-function: ease-in;
+	}
+	50% {
+		margin-top: 600px;		
+		-ms-animation-timing-function: ease-out;
+	}
+	100% {
+		margin-top: 0px;		
+	}
+}
+@keyframes bounce{
+	0% {
+		margin-top: 0px;
+		animation-timing-function: ease-in;
+	}
+	50% {
+		margin-top: 600px;		
+		animation-timing-function: ease-out;
+	}
+	100% {
+		margin-top: 0px;		
+	}
+}

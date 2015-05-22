@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>完美拖拽</title>
+<style type="text/css">
+html,body{overflow:hidden;}
+body,div,h2,p{margin:0;padding:0;}
+body{color:#fff;background:#000;font:12px/2 Arial;}
+p{padding:0 10px;margin-top:10px;}
+span{color:#ff0;padding-left:5px;}
+#box{position:absolute;width:300px;height:150px;background:#333;border:2px solid #ccc;top:50%;left:50%;}
+#box h2{height:25px;cursor:move;background:#222;border-bottom:2px solid #ccc;text-align:right;padding:0 10px;}
+#box h2 a{color:#fff;font:12px/25px Arial;text-decoration:none;outline:none;}
+</style>
+<script type="text/javascript">
+window.onload=function ()
+{
+	var oBox=document.getElementById("box");
+	var oH2 = oBox.getElementsByTagName("h2")[0];
+	var oA = oBox.getElementsByTagName("a")[0];
+	var aSpan = oBox.getElementsByTagName("span");	
+	var isDrag = false;
+	var disX = 0, disY = 0;
+
+	oH2.onmousedown = function(event) {
+		isDrag = true;
+		var event = event || window.event;
+		disX = event.clientX - oBox.offsetLeft;
+		disY = event.clientY - oBox.offsetTop;
+	};
+	oH2.onmouseup = function() {
+		isDrag = false;
+		status();
+	}
+	document.onmousemove = function(event) {
+		if (isDrag) {
+			var event = event || window.event;
+			oBox.style.left = event.clientX - disX + "px";
+			oBox.style.top = event.clientY - disY + "px";
+			status();
+		}
+	}
+	function status() {
+		aSpan[0].innerText = isDrag;
+		aSpan[1].innerText = oBox.offsetTop;
+		aSpan[2].innerText = oBox.offsetLeft;
+	}
+
+	status();
+}
+</script>
+</head>
+<body>
+<div id="box">
+    <h2><a>Draggable Window</a></h2>
+    <p><strong>Drag:</strong><span></span></p>
+    <p><strong>offsetTop:</strong><span></span></p>
+    <p><strong>offsetLeft:</strong><span></span></p>
+</div>
+</body>
+</html>

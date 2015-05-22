@@ -1,0 +1,38 @@
+body {
+	font-family: Futura, "Trebuchet MS", sans-serif;
+	background-color: #333;
+	color: #fff8f1;
+	text-align: center;
+	letter-spacing: 1px;
+}
+#wrapper {
+	padding-top: 10px;
+}
+h1 {
+	font-size: 50px;
+	line-height: 2;
+}
+p {
+	font-size: 18px;
+	line-height: 1.5;
+	font-family: Consolas, monospace;
+}
+#doors {
+	width: 700px;
+	margin: 0 auto;
+}
+.ib {
+	display: inline-block;
+	margin: 50px 30px;
+	width: 150px;
+	height: 240px;
+}
+#first {
+	background-color: #1f97f2;
+}
+#second {
+	background-color: #ff9933;
+}
+#third {
+	background-color: #14825f;
+}

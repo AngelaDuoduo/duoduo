@@ -1,0 +1,250 @@
+body {
+	background-color: #ff983d;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+	letter-spacing: 1px;
+	text-align: center;
+}
+#wrapper {
+	width: 700px;
+	padding-bottom: 36px;
+	margin: 0 auto;
+	min-height: 600px;
+	position: relative;
+}
+#food_container {
+	position: absolute;
+	top: 100px;
+	left: 0;	
+}
+.food{
+	height: 20px;
+	width: 60px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+	background-color: #1486b3;
+}
+.food:before{
+	content: "";
+	height: 0;
+	width: 0;
+	border-left: 12px solid #1486b3;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	position: absolute;
+	left: 0;
+	top: -2px;
+}
+.food:after{
+	content: "";
+	height: 5px;
+	width: 5px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+	background-color: black;
+	position: absolute;
+	top: 40%;
+	right: 5px;
+}
+#bubble{
+	position: absolute;
+	top: 100px;
+	right: 30px;
+	width: 150px;
+	height: 120px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+	background-color: white;
+	line-height: 120px;
+	font-size: 30px;
+}
+#bubble:before{
+	content: "";
+	width: 40px;
+	height: 30px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	top: 90%;
+	left: -20%;
+}
+#bubble:after{
+	content: "";
+	width: 20px;
+	height:15px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	top: 110%;
+	left: -40%;
+}
+#kitty_container {
+	width: 180px;
+	height: 350px;
+	position: absolute;
+	bottom: 90px;
+	right: 260px;
+	z-index: 1;
+}
+.ear{
+	width: 100px;
+	height: 80px;
+	background-color: #777;
+	position: absolute;
+	top: 35px;
+}
+.ear.left{	
+	left: 25px;
+	-webkit-transform: skew(30deg) rotate(35deg);
+	transform: skew(30deg) rotate(35deg);
+}
+.ear.right{
+	right: 25px;
+	-webkit-transform: skew(-30deg) rotate(-35deg);
+	transform: skew(-30deg) rotate(-35deg);
+}
+.head{
+	width: 100%;
+	height: 45%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius:50%;
+	border-radius: 50%;
+	background-color: #777;
+	position: absolute;
+	top: 40px;
+	z-index: 2;
+}
+.eye{
+	width: 23px;
+	height: 23px;
+	border-radius: 50%;
+	background-color: white;
+	position: absolute;
+	top: 30px;
+	padding: 12px;
+}
+.eye.left{
+	left: 15%;
+}
+.eye.right{
+	right: 15%;
+}
+.pupil{
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+#nose_container{
+	width: 100%;
+	height: 40%;
+	position: absolute;
+	bottom: 10%;
+}
+.whiskers{
+	height: 100%;
+	width: 40%;
+}
+.whiskers.left{
+	position: absolute;
+	left: 0;
+}
+.whiskers.right{
+	position: absolute;
+	right: 0;
+}
+.whisker{
+	width: 60%;
+	height: 2px;
+	background-color: black;
+	border-radius: 50%;
+	margin: 20% auto;
+}
+.whiskers.left .w1,
+.whiskers.right .w3{
+	-webkit-transform: rotate(10deg);
+}
+.whiskers.left .w3,
+.whiskers.right .w1{
+	-webkit-transform: rotate(-10deg);
+}
+.nose{
+	width: 8%;
+	height: 16%;
+	border-radius: 50%;
+	background-color: #e8a293;
+	position: absolute;
+	left: 46%;
+	top: 50%;
+}
+.mouth{
+	width: 8%;
+	height: 3%;
+	border-radius: 50%;
+	background-color: #333;
+	position: absolute;
+	left: 46%;
+	bottom: 16%;	
+}
+.body{
+	width: 70%;
+	height: 50%;
+	
+	background-color: #777;
+	position: absolute;
+	bottom: 10%;
+	right: 15%;
+	border-radius: 50% 50% 50% 50% / 70% 70% 40% 40%;
+}
+.paw{
+	width: 30px;
+	height: 20px;
+	border-radius: 70% 70% 40% 40%;
+	background-color: white;
+	position: absolute;
+	bottom:8%;
+	z-index: 2;
+}
+.paw.left{
+	left: 32%;	
+}
+.paw.right{
+	right: 32%;
+}
+.tail{
+	width: 140px;
+	height: 110px;
+	background-color: transparent;
+	border: 20px solid #777;
+	border-width: 0 0 20px 25px;
+	-webkit-transform: rotate(15deg);
+	position: absolute;
+	bottom: -30%;
+	left: -20%;
+	border-radius: 85px / 70px;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 36px;
+}
+
+#links_container {
+	padding: 10px 20px;
+	text-align: left;
+}
+#links_container a{
+	color: #1486b3;
+	margin-right: 10px;
+}
+#links_container a:hover{
+	color: #10e3d1;
+}

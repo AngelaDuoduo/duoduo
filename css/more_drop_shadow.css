@@ -1,0 +1,24 @@
+body {
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	background-color: #eee;
+	letter-spacing: 1px;
+}
+header{
+	padding: 15px;
+	background-color: #5c00de;
+}
+header a{
+	color: white;
+	padding: 5px;
+}
+#wrapper{
+	text-align: center;
+}
+img{
+	margin: 50px auto;
+	cursor: pointer;
+}
+#words p{
+	line-height: 1.5;
+	font-size: 24px;
+}

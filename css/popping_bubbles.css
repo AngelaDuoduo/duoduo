@@ -1,0 +1,37 @@
+body{
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	background-color: #fff5e8;
+	text-align: center;
+}
+header{
+	position: relative;
+	z-index: 1;
+	padding: 10px 20px;
+}
+#links_container{
+	text-align: right;
+}
+#links_container a{
+	color: #9ac6ff;
+	margin-left: 10px;
+}
+#links_container a:hover {
+	color: #005dd5;
+}
+button{
+	position: absolute;
+	top: 20px;
+	left:20px;
+	
+	border: none;
+	background-color: #ffd39a;
+	padding: 5px;
+	cursor: pointer;
+	z-index:2;
+}
+canvas{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+

@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>导航条</title>
+<style>
+body, div, ul, li, p{
+	margin: 0;
+	padding: 0;
+}
+a{ text-decoration: none;}
+#nav, #nav ul, #nav ul li, #nav ul li a:hover, #nav .subnav,
+#nav .subnav .arrow, #nav .subnav p, #nav .subnav p span{
+	background: url(http://js.fgm.cc/learn/lesson4/img/nav_bg.png) no-repeat; 
+}
+body{font:12px/1.5 arial;text-align:center;}
+#nav{
+	width: 910px; 
+	margin: 10px auto;
+	background-position: 0 -36px;
+	position: relative;
+}
+#nav ul{
+	list-style: none; 
+	display: block;	
+	margin-left: 10px;
+	padding-right: 10px;
+	height: 36px;
+	line-height: 36px;
+	background-position: right -72px;
+	overflow: hidden;
+}
+#nav ul li{
+	float: left; 
+	width: 110px; 
+	margin-left: -2px;
+	background-position: 0 -108px;
+}
+#nav ul li a{
+	display: block; 
+	font-size: 14px;
+	color: white;
+	margin: 0 2px 0 4px;
+	width: 102px;
+
+}
+#nav ul li a:hover{
+	font-weight: 700;
+	background-position: -3px -144px;
+}
+#nav .subnav{
+	display: none;
+	position: absolute;
+	top: 41px;
+	height: 27px;
+	min-width: 110px;
+	line-height: 27px;
+	background-position: 0 -180px;	
+}
+#nav .subnav .arrow {
+	display: block;
+	position: absolute;
+	top: -4px;
+	left: -50px;
+	width: 11px;
+	height: 5px;
+	
+	background-position: 0 -261px;	
+}
+#nav .subnav p{
+	margin-left: 10px;
+	padding-right: 10px;
+	background-position: right -234px;	
+}
+#nav .subnav p span{
+	display: block;
+	color: #235e99;
+	background-repeat: repeat-x;
+	background-position: right -207px;	
+}
+#nav .subnav p a{
+	display: inline;
+	font-size: 12px;
+	color: #235e99;
+	margin: 0 5px;
+	padding: 0 2px;
+}
+#nav .subnav p a:hover{
+	font-weight:400;
+	background-image:none;
+	border-bottom:2px solid;
+}
+</style>
+<script type="text/javascript">
+window.onload = function ()
+{
+	var lis = document.getElementsByTagName("li");
+	var nav = document.getElementById("nav");
+	var timer = null;
+	for (var i = 0; i < lis.length - 1; i++) {
+		lis[i].onmouseover = function(e){
+			var subnav = this.getElementsByClassName("subnav")[0];
+			if (typeof subnav !== 'undefined') {
+				subnav.style.display = "block";
+				subnav.onmouseover = function(evet) {
+					(event || window.event).cancelBubble = true;
+					clearTimeout(timer);
+				}
+				var arrow = subnav.getElementsByClassName("arrow")[0];	
+				if ((nav.offsetWidth - this.offsetLeft) > subnav.offsetWidth) {
+					subnav.style.left = this.offsetLeft + "px";
+				} else {						
+					subnav.style.right = "0px";							
+				}
+				arrow.style.left = this.offsetLeft - subnav.offsetLeft + 50 + "px"; 							
+			}								
+		};
+
+		lis[i].onmouseout = function(e){
+			var subnav = this.getElementsByClassName("subnav")[0];
+			if (typeof subnav !== 'undefined') {					
+				subnav.style.display = "none";
+			}
+		};
+	}
+};
+</script>
+</head>
+<body>
+<div id="nav">
+    <ul>
+        <li><a href="javascript:;">站长之家</a></li>
+        <li>
+            <a href="javascript:;">行业资讯</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>        	
+                    <span>
+                        <a href="javascript:;">业界动态</a>|
+                        <a href="javascript:;">收购融资</a>|
+                        <a href="javascript:;">门户动态</a>|
+                        <a href="javascript:;">搜索引擎</a>|
+                        <a href="javascript:;">网络游戏</a>|
+                        <a href="javascript:;">电子商务</a>|
+                        <a href="javascript:;">广告传媒</a>|
+                        <a href="javascript:;">厂商开发</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">站长在线</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>        	
+                    <span>
+                        <a href="javascript:;">站长报道</a>|
+                        <a href="javascript:;">好站推荐</a>|
+                        <a href="javascript:;">站长聚会</a>|
+                        <a href="javascript:;">站长访谈</a>|
+                        <a href="javascript:;">站长茶馆</a>|
+                        <a href="javascript:;">网站排行</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">网站运营</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>        	
+                    <span>
+                        <a href="javascript:;">建站经验</a>|
+                        <a href="javascript:;">策划盈利</a>|
+                        <a href="javascript:;">搜索优化</a>|
+                        <a href="javascript:;">网站推广</a>|
+                        <a href="javascript:;">免费资源</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">设计在线</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>        	
+                    <span>
+                        <a href="javascript:;">酷站推荐</a>|
+                        <a href="javascript:;">网页设计</a>|
+                        <a href="javascript:;">WEB标准</a>|
+                        <a href="javascript:;">视频处理</a>|
+                        <a href="javascript:;">设计活动</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">网络编程</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>        	
+                    <span>
+                        <a href="javascript:;">Asp编程</a>|
+                        <a href="javascript:;">Php编程</a>|
+                        <a href="javascript:;">.Net编程</a>|
+                        <a href="javascript:;">Xml编程</a>|
+                        <a href="javascript:;">Access</a>|
+                        <a href="javascript:;">Mssql</a>|
+                        <a href="javascript:;">Mysql</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">联盟资讯</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>        	
+                    <span>
+                        <a href="javascript:;">联盟动态</a>|
+                        <a href="javascript:;">联盟介绍</a>|
+                        <a href="javascript:;">联盟点评</a>|
+                        <a href="javascript:;">网赚技巧</a>
+                    </span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">服务器</a>
+            <div class="subnav">
+                <em class="arrow"></em>
+                <p>        	
+                    <span>
+                        <a href="javascript:;">Web服务器</a>|
+                        <a href="javascript:;">Ftp服务器</a>|
+                        <a href="javascript:;">Mail服务器</a>|
+                        <a href="javascript:;">Dns服务器</a>|
+                        <a href="javascript:;">Win服务器</a>|
+                        <a href="javascript:;">Linux服务器</a>|
+                        <a href="javascript:;">安全防护</a>|
+                        <a href="javascript:;">虚拟主机</a>
+                    </span>
+                </p>
+            </div>
+        </li>        
+    </ul>    
+</div>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+body,div,p,ul,li,input{margin:0;padding:0;}
+ul{list-style-type:none;}
+a{color:#fff;outline:none;text-decoration:none;}
+body{font:700 24px/1.5 Arial;}
+/*计算器container, 黑色背景。绝对定位包含块。*/
+#calc{position:relative;width:300px;background:#000;margin:10px auto;}
+/*信息栏，文字右对齐*/
+#calc p{color:#fff;text-align:right;font:12px/20px Arial;padding:0 5px;}
+/*输入显示栏，有padding, 固定宽高，右对齐，背景图片。*/
+#calc .f-text{border:0;width:290px;height:84px;text-align:right;font:700 50px/84px Arial;background:url(http://js.fgm.cc/learn/lesson3/img/inputBg.jpg) repeat-x;padding:0 5px;}
+/*按键区，绝对定位包含块，包含浮动，有bottom与left padding, 背景是小小黑色图片重复*/
+#calc ul{position:relative;overflow:hidden;zoom:1;background:url(http://js.fgm.cc/learn/lesson3/img/bg.jpg);padding:0 0 17px 8px;}
+/*按键， 左浮动，固定宽高，有top与right margin*/
+#calc ul li{float:left;margin:17px 10px 0 0;}
+/*按键中的链接，固定宽高，块元素化，行高等于高度，背景是图片*/
+#calc ul li a{display:block;width:63px;height:41px;line-height:41px;text-align:center;background:url(http://js.fgm.cc/learn/lesson3/img/btn.png) no-repeat;}
+/*按键按下的样式，背景图片位置改变*/
+#calc ul li a:hover{background-position:-63px 0;}
+/*操作符按钮，背景图片是另外一张*/
+#calc ul li.btn-1 a{background-position:0 -41px;}
+/*操作符按钮，鼠标覆盖时图片改变*/
+#calc ul li.btn-1 a:hover{background-position:-63px -41px;}
+/*等号绝对定位，覆盖浮动。但是也算浮动元素，因为会妨碍右边的元素浮动。。*/
+#calc ul li.btn-2{position:absolute;top:174px;right:0;}
+/*d等号的链接*/
+#calc ul li.btn-2 a{height:99px;line-height:99px;background-position:0 -164px;}
+/*等号鼠标覆盖样式*/
+#calc ul li.btn-2 a:hover{background-position:-63px -164px;}
+/*0的宽度, 0只是更宽了而已*/
+#calc ul li.btn-3{width:136px;}
+#calc ul li.btn-3 a{width:136px;background-position:0 -82px;}
+#calc ul li.btn-3 a:hover{background-position:0 -123px;}
+/*公式显示栏，绝对定位到#calc*/
+#formula{position:absolute;top:20px;background:none;border:0;font:700 12px/1.5 Arial;width:280px;padding:3px 15px 0 5px;text-align:right;}
+</style>
+<script>
+window.onload = function ()
+{
+	var oCalc = document.getElementById("calc");
+	var aA = oCalc.getElementsByTagName("a");
+	var aInput = oCalc.getElementsByTagName("input")[0];
+	var oFormula = document.getElementById("formula");
+	var start = true;
+	for (var i = 0; i < aA.length; i++){
+		aA[i].onclick = function ()
+		{
+			switch(this.innerHTML)
+			{
+				/*重置*/
+				case "c":
+					aInput.value =  0;
+					oFormula.value = "";
+					start = true;
+					break;
+				/*输入操作符时，执行相应操作*/
+				case "%":
+					count("%");
+					break;
+				case "÷":
+					count("/")
+					break;
+				case "×":
+					count("*")
+					break;
+				case "-":
+					count("-")
+					break;
+				case "+":
+					count("+")
+					break;
+				/*如果输入等号，s为false, 则追加公示栏信息*/
+				/*计算公式，呈现结果*/
+				/*s置为空*/
+				case "=":
+					if (/[0-9]+(\.[0-9]+)?/.test(aInput.value)){
+						oFormula.value += aInput.value;
+					} else if (/[\+\-\*\/]$}/.test(oFormula.value)){
+						oFormula.value = oFormula.value.replace(/.$/, "");
+					}
+					var result = eval(oFormula.value);
+					aInput.value = result;
+					start = true;
+					break;
+				case ".":
+					if (/[0-9]+(\.[0-9]+)?/.test(aInput.value)){
+						aInput.value += '.';
+					}
+					break;
+				default:
+					if(start) {
+						start = false;
+						oFormula.value = "";
+						aInput.value = this.innerHTML;
+					} else if (/[1-9][0-9]*(\.[0-9]*)?/.test(aInput.value)){
+						aInput.value = aInput.value + this.innerHTML;
+					} else {
+						aInput.value = this.innerHTML;
+					}				
+			}
+		}	
+	}
+	//输入操作符时
+	function count(op){
+		var input = aInput.value, curFormula = oFormula.value;
+		if (input === "" && curFormula ==="") {
+			aInput.value = op;
+			oFormula.value = "0" + op;
+			start = false;	
+		} else if (/[0-9]+(\.[0-9]+)?/.test(aInput.value)){
+			if(!start) {
+				oFormula.value = curFormula + aInput.value + op;				
+			} else {
+				oFormula.value = aInput.value + op;
+				start = false;	
+			}
+			aInput.value = op;
+		} else{
+			oFormula.value = oFormula.value.replace(/.$/, op);
+			aInput.value = op;
+		}
+		
+	}
+
+}
+</script>
+<title>网页计算器</title>
+</head>
+<body>
+<div id="calc">
+    <p>By - Ferris QQ:21314130</p>
+    <input class="f-text" type="text" readonly="readonly" maxlength="9" value="0" />
+    <ul>
+        <li class="btn-1"><a href="javascript:void(0)">c</a></li>
+        <li class="btn-1"><a href="javascript:void(0)">%</a></li>
+        <li class="btn-1"><a href="javascript:void(0)">÷</a></li>
+        <li class="btn-1"><a href="javascript:void(0)">×</a></li>
+        <li><a href="javascript:void(0)">7</a></li>
+        <li><a href="javascript:void(0)">8</a></li>
+        <li><a href="javascript:void(0)">9</a></li>
+        <li class="btn-1"><a href="javascript:void(0)">-</a></li>
+        <li><a href="javascript:void(0)">4</a></li>
+        <li><a href="javascript:void(0)">5</a></li>
+        <li><a href="javascript:void(0)">6</a></li>
+        <li class="btn-1"><a href="javascript:void(0)">+</a></li>
+        <li><a href="javascript:void(0)">1</a></li>
+        <li><a href="javascript:void(0)">2</a></li>
+        <li><a href="javascript:void(0)">3</a></li>
+        <li class="btn-2"><a href="javascript:void(0)">=</a></li>
+        <li class="btn-3"><a href="javascript:void(0)">0</a></li>
+        <li><a href="javascript:void(0)">.</a></li>
+    </ul>
+    <input id="formula" type="text" readonly="readonly" value="" />
+</div>
+</body>
+</html>

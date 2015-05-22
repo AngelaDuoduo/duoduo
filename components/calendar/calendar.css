@@ -1,0 +1,92 @@
+html, body{
+	margin: 0;
+	padding: 0;
+}
+body {
+	position: relative;
+	font-family: Consolas, sans-serif;
+}
+.calendar{
+	display: none;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+
+	background-color: white;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	z-index: 1;
+}
+.calendar>.month{
+	padding: 3px;
+	font-size: 16px;
+	background-color: #007bc4;
+	color: white;
+}
+.calendar>.last_month{
+	position: absolute;
+	top: 4px;
+	left: 3px;
+
+	border-right: 8px solid white;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	cursor: pointer;
+}
+.calendar>.next_month{
+	position: absolute;
+	top: 4px;
+	right: 3px;
+
+	border-left: 8px solid white;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	cursor: pointer;
+}
+.week{
+	font-family: "Microsoft YaHei", sans-serif;
+	background-color: #dce6f2;
+	padding: 0 4px;
+	zoom: 1;
+}
+.week:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.week>.weekday{
+	float: left;
+	width: 27px;
+	height: 27px;
+	line-height: 27px;
+}
+.days{
+	padding: 0 4px;
+}
+.days>.invalid_day, .days>.day{
+	float: left;
+	width: 27px;
+	height: 25px;
+	line-height: 27px;
+	font-size: 14px;
+	cursor: pointer;
+}
+.days>.invalid_day{
+	color: #ccc;
+	cursor: auto;
+}
+.days>.day.today{
+	background-color: #dce6f2;
+}
+.days>.day:hover{
+	background-color: #007bc4;
+	color: white;
+}
+
+
+
+
+
+

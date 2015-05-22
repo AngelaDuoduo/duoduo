@@ -1,0 +1,27 @@
+body{
+	background-color: #eee;
+}
+.tooltips{
+	width: 100px;
+	height: 100px;
+	background: #f90;
+	border: 1px dashed #ccc;
+	float: left;
+	margin: 20px;
+}
+.tip{
+	display: none;
+	background-color: #f60;
+	position: absolute;
+}
+.tip::before{
+	content: "";
+	color: #f60;
+	position: absolute;
+	left: 50%;
+	margin-left: -10px;
+	top: -10px;
+	border-bottom: 10px solid #f60;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+}

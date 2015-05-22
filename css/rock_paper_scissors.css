@@ -1,0 +1,77 @@
+body{
+	font-family: Arial, sans-serif;
+	letter-spacing: 1px;
+}
+#wrapper{
+	height: 600px;
+	width: 900px;
+	margin: 0 auto;
+	padding-top: 10px;
+	padding-bottom: 50px;
+	text-align: center;
+	font-size: 0;
+}
+.block{
+	display: inline-block;
+	width: 350px;
+	vertical-align: top;
+}
+.block .image{
+	height: 300px;
+}
+.block.message{
+	width: 200px;
+	font-size: 30px;
+	color: #329999;
+	padding: 200px 0;
+	line-height: 1.2;
+	height: 50px;
+}
+.block .title{
+	font-size: 24px;
+	color: #cc333f;
+	padding: 20px 0;
+	border-bottom: 1px solid #00ace9;
+	margin-bottom: 100px;
+	width: 100%;
+}
+#choices{
+	width: 100%;
+}
+#choices .button{
+	display: inline-block;
+	width: 110px;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 6px;
+	font-size: 18px;
+	background-color:#00ace9;	
+	cursor: pointer;
+}
+.shake{
+	-webkit-animation: shake 1.5s 1;
+}
+footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	text-align: left;
+}
+footer a{
+	color: #cc333f;
+	padding: 0 5px;
+}
+@-webkit-keyframes shake{
+	0%, 100%{
+		-webkit-transform: translateY(0);
+	}
+	14%, 42%, 70%, 98%{
+		-webkit-transform: translateY(-50px);
+	}
+	28%, 56%, 84%{
+		-webkit-transform: translateY(50px);
+	}
+	
+}

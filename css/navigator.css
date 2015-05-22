@@ -1,0 +1,38 @@
+.site-row:after{
+	content: "";
+	line-height: 0;
+	display: table;
+	clear:both;
+}
+#headPic {
+	float: left;
+	width: 80px;
+	height: 80px;
+	box-shadow: 0 0 3px black;
+	border-radius: 50%;
+	overflow: hidden;	
+}
+.site-title {
+	float: left;
+	display: block;
+	color: #aeadbb;
+	font-size: 30px;
+	margin: 20px 10px;
+}
+.header-link {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+}
+.header-link a{
+	padding: 5px 10px;
+	color: #aeadbb;
+	display: inline-block;
+}
+.header-link a:hover {
+	color: #e87015;
+	
+}
+
+
+

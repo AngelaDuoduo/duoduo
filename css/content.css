@@ -1,0 +1,82 @@
+.home {
+	letter-spacing: 1px;
+	padding-left: 10px;
+}
+.home h2{
+	color: #aeadbb;
+	font-size: 12px;
+}
+.home h2 a{
+	color: #1486b3;
+	font-size: 14px;
+}
+.post-list li {
+	padding: 5px 0;
+}
+.post-list li .post-link{
+	color: #1486b3;
+	font-weight: 500;
+}
+.post-list li .post-link:hover{
+	color: #444857;
+	text-decoration: underline;
+	font-weight: 500;
+}
+.post-list li .post-meta{
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.4);
+}
+.pagin {
+	margin-left: 5%;
+	overflow: hidden;
+}
+.pagin-link {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #444857;
+	float: left;
+	border: 1px solid #dce6f2;
+	border-radius: 20px;
+}
+.pagin-link a {
+	color: #aeadbb;
+	font-weight: 800;
+}
+.pagin-link a:hover{
+	color: #e87015;
+}
+
+.blog {
+	width: 90%;
+}
+.blog h2 {
+	line-height: 1.5;
+	border-bottom: 1px dotted rgba(0, 0, 0, 0.2);
+	background-color: #dce6f2;
+	padding: 5px;
+	padding-left: 10px;
+	margin-top: 30px;
+}
+.blog h2 .post-link{
+	font-size: 20px;
+	font-weight: 800;
+	color: black;
+}
+.blog h2 .post-meta {
+	font-size: 14px;
+	font-weight:400;
+	color: rgba(0, 0, 0, 0.3);
+}
+.blog .blog-content {
+	padding: 30px;
+	font-size: 16px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+.blog p {
+	white-space: pre-wrap;
+}
+.blog a{
+	color: #aeadbb;
+}
+

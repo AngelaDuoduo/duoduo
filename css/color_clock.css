@@ -1,0 +1,43 @@
+body {
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	text-align: center;
+	letter-spacing: 1px;
+	position: relative;
+}
+#wrapper{
+	padding-top: 100px;
+	width: 700px;
+	margin: 0 auto;
+	height: 600px;
+	padding-bottom: 50px;
+}
+h1{
+	font-size: 50px;
+	line-height: 1.5;
+	color: white;
+	text-shadow: -1px -1px rgba(0, 0, 0, 0.8);
+}
+#time, #color{
+	font-size: 120px;
+	line-height: 2;
+	color: white;
+	text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
+}
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 700px;
+	margin: 0 auto;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	border-radius: 15px 15px 0 0;
+	background-color: rgba(0, 0, 0, 0.5);	
+}
+footer a{
+	float: left;
+	color: white;	
+}
+footer a[href='#']{
+	float: right;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>鼠标移过，改变图片路径</title>
+<style>
+body,ul,li{margin:0;padding:0;}
+body{background:#000;}
+img{border:0;border-radius:3px;}
+ul{list-style-type:none;}
+#box{width: 212px; margin: 10px auto;padding: 0 0 3px 3px;border: 5px solid #fff;border-radius: 5px; background-color: white; overflow: hidden; zoom: 1;}
+#box li{float: left; width: 50px; height: 50px;margin: 3px 3px 0 0;}
+#box li.first, #box li.first img{width: 156px; height: 156px;}
+</style>
+<script type="text/javascript">
+window.onload = function ()
+{
+	var oImg = document.getElementById("box").getElementsByTagName("img");
+	for (var i = 0; i < oImg.length; i++) {
+		oImg[i].onmouseover = function() {
+			oImg[0].src = this.src.replace(/small/, "big");
+		}
+	}
+};
+</script>
+</head>
+<body>
+<ul id="box">
+    <li class="first"><img src="http://js.fgm.cc/learn/lesson2/img/big_1.jpg"><div></div></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_1.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_2.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_3.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_4.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_5.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_6.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_7.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_8.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_9.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_10.jpg"></a></li>
+    <li><a href="javascript:;"><img src="http://js.fgm.cc/learn/lesson2/img/small_11.jpg"></a></li>
+</ul>
+</body>
+</html>

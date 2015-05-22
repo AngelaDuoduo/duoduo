@@ -1,0 +1,30 @@
+body{
+	background-color: #000;
+	font-size: 14px;
+	font-family: Arial, sans-serif;
+	letter-spacing: 1px;
+}
+header{
+	padding: 20px 30px;
+	font-size: 14px;
+	text-align: right;
+}
+header a{
+	margin-left: 20px;
+	color: #aaa;
+}
+.circle{
+	border-radius: 50%;
+	box-shadow: 0 0 2px rgba(255, 255, 255, 0.9);
+	-webkit-animation: breath 1s infinite;
+	
+	position: absolute;
+}
+@-webkit-keyframes breath{
+	0%, 100%{
+		-webkit-transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(1.2);
+	}
+}

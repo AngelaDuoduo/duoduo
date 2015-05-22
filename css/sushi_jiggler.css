@@ -1,0 +1,125 @@
+body {
+	font-family: Arial, sans-serif;
+	letter-spacing: 2px;
+}
+#wrapper{
+	padding-top: 100px;
+}
+#pics{
+	width: 900px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.pic{
+	display: inline-block;
+	width: 300px;
+}
+img{
+	cursor: pointer;
+}
+footer{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	background-color: #ddd;
+}
+footer a{
+	font-size: 14px;
+	padding-left: 5px;
+	margin-right: 10px;
+	color: rgba(0, 0, 0, 0.4);
+	border-left: 15px solid #f1c40f;
+}
+footer a[href='#']{
+	border-left: 15px solid #8b00e0;
+}
+
+.shake{
+	-webkit-animation: shake 1s 2;
+	-moz-animation: shake 1s 2;
+	-o-animation: shake 1s 2;
+	-ms-animation: shake 1s 2;
+	animation: shake 1s 2;
+}
+.hop{
+	-webkit-animation: hop 1s 2;
+}
+.spin{
+	-webkit-animation: spin 1s 2;
+}
+.grow{
+	-webkit-animation: grow 2s 1;
+}
+.hooray{
+	-webkit-animation: hooray 1s 2;
+}
+@-webkit-keyframes shake{
+	0%, 100% {
+		-webkit-transform: translateX(0);
+	}
+	5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95%{
+		-webkit-transform: translateX(-20px);
+	}
+	10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%{
+		-webkit-transform: translateX(20px);
+	}
+}
+@-webkit-keyframes hop{
+	0%, 50%, 100%{
+		-webkit-transform: translateY(0) rotate(0deg);
+	}
+	25%{
+		-webkit-transform: translateY(-150px) rotate(-45deg);
+	}
+	75%{
+		-webkit-transform: translateY(-150px) rotate(45deg);
+	}
+}
+@-webkit-keyframes spin{
+	from{
+		-webkit-transform: rotate(0deg);
+		-webkit-transform-origin:  50% 50%;
+		-wekit-transform-timing-function: ease-in-out;
+	}
+	to{
+		-webkit-transform: rotate(3600deg);
+		-webkit-transform-origin: 50% 50%;
+		-webkit-transform-timing-function: ease-in-out;
+	}
+}
+@-webkit-keyframes grow{
+	0%, 100%{
+		-webkit-transform: scale(1);
+	}
+	75%{
+		-webkit-transform: scale(2.5);
+	}
+	90%{
+		-webkit-transform: scale(0.7);
+	}
+	93%{
+		-webkit-transform: scale(1.4);
+	}
+	95%{
+		-webkit-transform: scale(0.5);
+	}
+	97%{
+		-webkit-transform: scale(1.2);
+	}
+}
+@-webkit-keyframes hooray{
+	0%, 50%, 100%{
+		-webkit-transform: translate(0, 0)scale(1);
+	}
+	25%{
+		-webkit-transform: translate(-50px, -50px) scale(1.5);
+	}
+	75%{
+		-webkit-transform: translate(50px, -50px) scale(1.5);
+	}
+}
+

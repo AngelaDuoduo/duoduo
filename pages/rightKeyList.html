@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Self-definition Menu</title>
+	<meta charset="utf-8" />
+	<style>
+	html, body, ul, li{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		position: relative;
+	}
+	ul{
+		list-style: none;
+		display: none;
+		position: absolute;
+		border: 1px solid black;
+		box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+	}
+	li{
+		padding: 10px 20px;
+		text-align: center;
+		cursor: auto;
+	}
+	li.active{
+		background-color: #ccc;
+	}
+	</style>
+	<script>
+		window.onload = function() {
+			var ul = document.getElementsByTagName("ul")[0];
+			var list = ul.getElementsByTagName("li");
+			document.oncontextmenu = function(event){
+				event.preventDefault();
+				var x = event.clientX,
+					y = event.clientY;
+				ul.style.display = "block";
+				ul.style.left = x + "px";
+				ul.style.top = y + "px";
+				document.onclick = function() {
+					ul.style.display = "none";
+				}
+			}
+			for(var i = 0, len = list.length; i < len; i++){
+				list[i].onmouseover = function(){
+					this.className="active";
+				}
+				list[i].onmouseout = function(){
+					this.className="";
+				}
+				list[i].onclick = function(){
+					ul.style.display = "none";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li>剪切</li>
+		<li>复制</li>
+		<li>粘贴</li>
+	</ul>
+</body>
+</html>

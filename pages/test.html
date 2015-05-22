@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>淘宝首页搜索栏收起时显示fix搜索条</title>
+	<style>
+		html, body, ul, li, input{padding: 0; margin: 0;}
+		html{
+			height: 100%;
+		}
+		body{
+			text-align: center;
+			height: 200%;
+		}
+		ul{
+			list-style: none;
+		}
+		input:focus{
+			outline: none;
+		}
+		.nav{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;	
+			height: 36px;
+			background-color: #eee;
+			font-size: 12px;
+		}
+		.container{
+			width: 1120px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.left{
+			float: left;
+		}
+		.right{
+			float: right;
+		}
+		.nav li{
+			float: left;
+			line-height: 36px;
+			padding: 0 20px;
+		}
+		.nav li a{
+			display: block;
+		}
+		.searchbar-fixed{
+			position: fixed;
+			top: 36px;
+			right: 0;
+			left: 0;
+			display: none;
+			height: 50px;
+			box-shadow: 0 2px 2px #eee;
+			background-color: #fff;
+		}
+		.searchbar-fixed #smallpic{
+			float: left;
+		}
+		.searchbar-fixed img{
+			max-height: 100%;
+		}
+		.searchbar-fixed #smallinput{
+			float: right;
+			height: 30px;
+			padding: 10px;
+		}
+		.searchbar-fixed input{
+			vertical-align: middle;
+			font-size: 20px;
+		}
+		.searchbar-fixed input[type='text']{
+			width: 500px;
+			height: 25px;
+			border: 2px solid #f60;
+		}
+		.searchbar-fixed input[type='submit']{
+			width: 50px;
+			height: 29px;
+			line-height: 29px;
+			font-size: 16px;
+			font-weight: 700;
+			padding: 0 10px;
+			margin-left: -10px;
+			border: none;
+			background-color: #f60;
+			color: #fff;
+		}
+		.search-bar{
+			margin-top: 150px;
+		}
+		.search-bar #pic{
+			float: left;
+		}
+		.search-bar #searchform{
+			float: left;
+			margin-left: 200px;
+			font-size: 0;
+		}
+		.search-bar #searchform ul{
+			zoom: 1;
+		}
+		.search-bar #searchform ul:after{
+			display: table;
+			content: "";
+			line-height: 0;
+			clear: both;
+		}
+		.search-bar #searchform li{
+			float: left;
+			display: inline;
+			padding: 5px 10px;
+			font-size: 14px;
+			font-weight: 600;
+			cursor: pointer;
+		}
+		.search-bar #searchform li.current{
+			color: white;
+			background-color: #f60;
+		}
+		.search-bar #searchform .search-input{
+			width: 400px;
+			height: 30px;
+			margin-top: -3px;
+			border: 2px solid #f60;
+			padding: 0 2px;
+			font-size: 14px;
+		}
+		.search-bar #searchform .search-button{
+			border: none;
+			width: 60px;
+			height: 34px;
+			margin-left: -10px;
+			background-color: #f60;
+			color: white;
+			font-size: 14px;
+			font-weight: 700;
+		}
+
+	</style>
+	<script>
+		window.onload = function() {
+			var searchFixed = document.getElementsByClassName("searchbar-fixed")[0];
+			var searchBar = document.getElementsByClassName("search-bar")[0];
+			document.onmousewheel = function(event) {
+				if (searchBar.offsetTop - document.body.scrollTop <= 50) {
+					searchFixed.style.display = "block";
+				} else {
+					searchFixed.style.display = "none";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="nav">
+		<div class="container">
+			<ul class="left">
+				<li><a>砂糖橘0713</a></li>
+				<li><a>消息</a></li>
+				<li><a>手机逛淘宝</a></li>
+			</ul>
+			<ul class="right">
+				<li><a>我的淘宝</a></li>
+				<li><a>购物车</a></li>
+				<li><a>收藏夹</a><li>
+				<li><a>商品分类</a></li>
+				<li><a>卖家中心</a></li>
+				<li><a>联系客服</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="searchbar-fixed">
+		<div class="container">
+			<div id="smallpic"><img src="../images/taobao.png" /></div>
+			<div id="smallinput">
+				<input type="text" name="keyword"/>
+				<input type="submit" value="搜索"/>
+			</div>
+		</div>
+	</div>
+	<div class="search-bar">
+		<div class="container">
+			<div id="pic"><img src="../images/taobao.png" /></div>
+			<div id="searchform">
+				<ul class="tab"><li class="current">宝贝</li><li>天猫</li><li>店铺</li></ul>
+				<input class="search-input" type="text" />
+				<input class="search-button" type="submit" value="搜索" />
+				<ul class="hot"><li>时尚女包</li><li>羽绒服</li><li>雪地靴</li></ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

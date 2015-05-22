@@ -1,0 +1,116 @@
+body{
+	font-family: "Avenir", Futura, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	background-color: #d2fffa;
+	text-align: center;
+}
+header{
+	padding: 15px 20px;
+	font-size: 20px;
+	overflow: hidden;
+	background-color: #fafafa;
+	border-bottom: 5px solid #009786;
+	margin-bottom: 30px;
+}
+header #title{
+	font-weight: 700;
+	float: left;
+}
+header #links-container{
+	float: right;
+}
+header a{
+	font-size: 16px;
+	margin-left: 10px;
+}
+#wrapper{
+	width: 900px;
+	height: 600px;
+	margin: 0 auto;
+	position: relative;
+}
+#start-info{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #d2fffa;
+}
+#start-info p,
+#game-page p{
+	line-height: 2;
+	font-size: 30px;
+}
+#start-info #start-button{
+	margin-top: 50px;
+	background-color: #009786;
+	line-height: 50px;
+	height: 50px;
+	font-size: 30px;
+	padding: 0 2em;
+	color: white;
+	border: none;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	cursor: pointer;	
+}
+#game-page{
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+}
+#game-page #panel{
+	margin: 50px 0;
+	font-size: 0;
+}
+#word, #score{
+	display: inline-block;
+	vertical-align: bottom;
+	background-color: #cc0018;
+	color: white;
+}
+#word{
+	width: 400px;
+	height: 150px;
+	line-height: 150px;
+	font-size: 40px;
+	-webkit-border-radius: 5px 0 0 5px;
+	-moz-border-radius: 5px 0 0 5px;
+	text-align: right;
+	letter-spacing: 10px;
+}
+#score{
+	width: 150px;
+	height: 180px;
+	padding-top: 20px;
+	font-size: 20px;
+	-webkit-border-radius: 5px 5px 5px 0;
+	-moz-border-radius: 5px 5px 5px 0;
+}
+input{
+	width: 450px;
+	height: 30px;
+	padding: 5px;
+	font-size: 30px;
+	border: none;
+	-webkit-border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+}
+input, button[type='submit']{
+	vertical-align: middle;
+}
+button[type='submit']{
+	margin-left: -5px;
+	background-color: #009786;
+	line-height: 40px;
+	height: 40px;
+	font-size: 20px;
+	padding: 0 0.5em;
+	color: white;
+	border: none;
+	-webkit-border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	cursor: pointer;
+}

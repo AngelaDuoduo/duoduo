@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>星级评分</title>
+<style>
+html, body, ul, li{
+	padding: 0;
+	margin: 0;
+}
+body{font:14px/1.5 Consolas, "Microsoft YaHei", sans-serif; position: relative;}
+.star_score{
+	width: 600px;
+	margin: 10px auto;
+}
+.star_score ul{
+	float: left;
+	list-style: none;
+	zoom: 1;
+}
+.star_score:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.star_score span{
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	padding-right: 8px;
+	vertical-align: middle;
+}
+.star_score ul li{
+	float: left;
+	height: 20px;
+	width: 20px;
+	margin-right: 2px;
+	background: url(http://js.fgm.cc/learn/lesson4/img/star.png) no-repeat;
+	background-position:0 0;
+	font-size: 0;
+}
+.star_score p{
+	display: none;
+	background: url(http://js.fgm.cc/learn/lesson4/img/icon.gif) no-repeat;
+	position: absolute;
+	top: 16px;
+	padding: 5px;
+	font-size: 12px;
+	width: 170px;
+	height: 60px;
+}
+.star_score em{
+	display: block;
+	height: 20px;
+	margin-top: 3px;
+	color: #f60;
+	font-style: normal;
+}
+.star_score p b{
+	font-weight: 600;
+	margin-right: 5px;
+}
+.star_score .result em{
+	display: inline;
+}
+</style>
+<script type="text/javascript">
+window.onload = function ()
+{
+	var starList = document.getElementsByTagName("li");
+	var starUl = document.getElementsByTagName("ul")[0];
+	var star_score = document.getElementsByClassName("star_score")[0];
+	var info = document.getElementsByTagName("p")[0];
+	var scoreInfo = document.getElementsByTagName("span")[1];
+	var msg = [
+				"很不满意|差得太离谱，与卖家描述的严重不符，非常不满",
+				"不满意|部分有破损，与卖家描述的不符，不满意",
+				"一般|质量一般，没有卖家描述的那么好",
+				"满意|质量不错，与卖家描述的基本一致，还是挺满意的",
+				"非常满意|质量非常好，与卖家描述的完全一致，非常满意"
+				];
+
+	var currentScore = 0;
+	for (var i = 0, len = starList.length; i < len; i++) {
+		starList[i].onmouseover = (function(index) {
+			return function() {
+				showStar(index);
+				info.style.display = "block";	
+				info.innerHTML = "<em><b>" + (index + 1) + "分</b>" + msg[index].match(/(.+)\|/)[1] + "</em><div>" + msg[index].match(/\|(.+)/)[1] + "</div>";
+				info.style.left = starUl.offsetLeft + index * starList[index].offsetWidth - 73 + "px";
+			}
+		}(i));
+
+		starList[i].onclick = (function(index) {
+			return function() {
+				currentScore = index + 1;
+				showStar(currentScore - 1);	
+				scoreInfo.innerHTML = "<em>" + currentScore + "分</em>(" + msg[index].match(/\|(.+)/)[1] + ")";
+			}
+		}(i));
+	}
+	starUl.onmouseout = function() {
+		showStar(currentScore-1);
+		info.style.display = "none";		
+	};
+	function showStar(index){
+		for (var i = 0, len = starList.length; i < len; i++) {
+			if (i <= index) {
+				starList[i].style.backgroundPosition = "0 -28px";
+			} else {
+				starList[i].style.backgroundPosition = "0 0";
+			}			
+		}		
+	} 
+};
+</script>
+</head>
+<body>
+	<div class="star_score">
+		<span>点击星星就能评分</span>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<span class="result"></span>
+		<p></p>
+	</div>
+</body>
+</html>

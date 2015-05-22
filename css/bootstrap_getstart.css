@@ -1,0 +1,127 @@
+/*通用*/
+body{
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande",
+				 "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3",
+				 "Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+	padding-top: 40px;
+}
+a{
+	color: #08c;
+	text-decoration: none;
+}
+h1{
+	margin: 10px 0;
+}
+.navbar:after, .navbar-inner:after, .container:after, 
+.nav:after, .row:after{
+	content: "";
+	display:table;
+	clear: both;
+}
+/*布局*/
+.container{
+	width: 1170px;
+	margin:0 auto;
+}
+.span3, .span9{
+	float: left;
+	margin-left: 30px;
+}
+.span3{
+	width: 270px;
+}
+.span9{
+	width: 870px;
+}
+
+/*横向导航条*/
+.navbar {
+	font-size: 13px;
+}
+.navbar-fixed-top{
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+.navbar-inner{
+	border-style: solid;
+	border-width: 0 0 1px;
+	min-height: 40px;
+}
+.navbar-fixed-top .navbar-inner{
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar-inverse .navbar-inner{
+	background-color: #1b1b1b;
+	background: linear-gradient(to bottom, #222, #111);
+	border-color: #252525;
+}
+.navbar-fixed-top .brand{
+	display: block;
+	float: right;
+	font-size: 20px;
+	line-height: 20px;
+	padding: 10px 0;
+	margin-left: 10px;
+	font-weight: 700;
+	color: #000;
+}
+.navbar-fixed-top .brand:hover{
+	color: white;
+}
+.navbar .nav{
+	list-style:none;
+	margin-right: 10px;
+}
+.navbar .nav>li{
+	float: left;	
+}
+.navbar .nav>li>a{
+	display: block;
+	padding: 10px 15px 10px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #999;
+}
+.navbar .nav>li.active>a{
+	color: white;
+}
+
+/*subhead*/
+.subhead{
+	padding: 40px 0;
+	background: linear-gradient(45deg, #020031, #6d3353);
+}
+.subhead h1{
+	color: white;
+	font-size: 60px;
+	color: white;
+	font-weight: 700;
+}
+.subhead .lead{
+	color: white;
+	font-size: 24px;
+	line-height: 30px;
+	font-weight: 500;
+	margin-bottom: 30px;
+}
+
+/*正文*/
+.row{
+	margin-left: -30px;
+}
+
+/*footer*/
+footer{
+	margin-top: 70px;
+	border-top: 1px solid #e5e5e5;
+	padding: 30px 0;
+	text-align:center;
+	background-color: #f5f5f5;
+}
+footer p{
+	color: #777;
+}

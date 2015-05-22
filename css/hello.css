@@ -1,0 +1,48 @@
+body {
+	font-family: Arial, sans-serif;
+	letter-spacing: 2px;
+	color: #5f5f5f;
+}
+#wrapper {
+	padding: 15px 50px;	
+}
+h1 {
+	font-size: 90px;
+	color: #ff9933;
+	line-height: 1;
+	font-weight: bold;
+}
+h2 {
+	font-size: 40px;
+	color: #ff9933;
+	line-height: 1;
+	font-weight: bold;
+}
+#header {
+	margin-bottom: 30px;
+}
+#header p {
+	font-size: 24px; 
+	line-height: 1.2;
+}
+#info {
+	text-align: center;
+	padding: 30px 0;
+}
+#info p {
+	font-size: 24px;
+	line-height: 2;
+}
+#info a{
+	font-size: 24px;
+	font-weight: bold;
+	color: #8b00c0;
+}
+#worklist {
+	padding: 30px 0;
+}
+#worklist a{
+	margin-left: 5px;
+	font-weight: bold;
+	color: #8b00c0;
+}
