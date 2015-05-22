@@ -109,60 +109,63 @@ window.onload = function() {
 			$.click($("#add-category"),function() {
 				//初始化分类信息
 				var categoryName = prompt("please input new category name.");
-				var categoryData = {
+				if (categoryName && categoryName.replace(/^\s|\s$/, "") !== "") {
+					var categoryData = {
 					"name": categoryName,
-					"subcategories": [],
+					"subCategories": [],
 					"tasks": []
-				};
-				//实例化分类对象
-				var category = new Category(categoryData, that, that.currentCategory);
-				//如果当前选中的分类是默认分类，由于默认分类不允许有子分类，因而新添加的分类算作应用一级分类。
-				if (that.defaultCategory === that.currentCategory) {
-					that.categories.push(category);
-					that.userData.categories.push(categoryData);
-					category.render(that.nav);
-				} else {
-					//如果当前选中的分类不是默认分类，则新添加的分类为当前分类的子类
-					that.currentCategory.subCategories.push(category);
-					that.currentCategory.categoryObj.subCategories.push(categoryData);
-					category.render(that.currentCategory.navDom);
-				}
-				//选中当前添加的分类，并将新分类持久化到本地存储
-				category.active();
-				that.saveUserData();
-			});
-			
-			/*添加新任务*/
-			$.click($("#add-task"), function() {
-				var taskName = prompt("please input task name");
-				if (taskName && taskNum.replace(/^\s|\s$/, "") !== "") {
-					//初始化任务信息
-					var date = new Date();
-					var taskData = { 
-							"name": taskName,
-							"create_time": that._formatDate(date),
-							"update_time": that._formatDate(date),
-							"content": "",
-							"isFinished": false 
-						};
-					//实例化任务对象
-					var task = new Task(taskData, that.currentCategory);
-					//当前选中的分类任务数加1
-					that.currentCategory.taskNum++;
-					//修改分类导航栏中任务数
-					that.currentCategory.updateTaskNum();
-					//将任务对象添加到所属分类对象中
-					that.currentCategory.tasks.push(task);
-					//待持久化数据模型更新
-					that.currentCategory.categoryObj.tasks.push(taskData);
-					//更新任务导航中的任务列表，以显示新任务
-					that.currentCategory.refreshTasks();
-					//选中新添加的任务
-					task.active();
-					//持久化新任务数据
+					};
+					//实例化分类对象
+					var category = new Category(categoryData, that, that.currentCategory);
+					//如果当前选中的分类是默认分类，由于默认分类不允许有子分类，因而新添加的分类算作应用一级分类。
+					if (that.defaultCategory === that.currentCategory) {
+						that.categories.push(category);
+						that.userData.categories.push(categoryData);
+						category.render(that.nav);
+					} else {
+						//如果当前选中的分类不是默认分类，则新添加的分类为当前分类的子类
+						that.currentCategory.subCategories.push(category);
+						that.currentCategory.categoryObj.subCategories.push(categoryData);
+						addClass(that.currentCategory.navDom, "category-submenu");
+						category.render(that.currentCategory.navDom);
+					}
+					//选中当前添加的分类，并将新分类持久化到本地存储
+					category.active();
 					that.saveUserData();
-				}
+					}
+					
+				});
 				
+				/*添加新任务*/
+				$.click($("#add-task"), function() {
+					var taskName = prompt("please input task name");
+					if (taskName && taskName.replace(/^\s|\s$/, "") !== "") {
+						//初始化任务信息
+						var date = new Date();
+						var taskData = { 
+								"name": taskName,
+								"create_time": that._formatDate(date),
+								"update_time": that._formatDate(date),
+								"content": "",
+								"isFinished": false 
+							};
+						//实例化任务对象
+						var task = new Task(taskData, that.currentCategory);
+						//当前选中的分类任务数加1
+						that.currentCategory.taskNum++;
+						//修改分类导航栏中任务数
+						that.currentCategory.updateTaskNum();
+						//将任务对象添加到所属分类对象中
+						that.currentCategory.tasks.push(task);
+						//待持久化数据模型更新
+						that.currentCategory.categoryObj.tasks.push(taskData);
+						//更新任务导航中的任务列表，以显示新任务
+						that.currentCategory.refreshTasks();
+						//选中新添加的任务
+						task.active();
+						//持久化新任务数据
+						that.saveUserData();
+					}				
 			});
 
 			/*按下任务编辑按钮后*/
@@ -349,6 +352,7 @@ window.onload = function() {
 		//isDefault代表是否为默认分类
 		render: function(fatherUL,isDefault) {
 			/*在分类导航栏中添加元素*/
+			console.log(fatherUL);
 			var navItem = document.createElement("li");
 			addClass(navItem, "category-item");
 			navItem.appendChild(document.createElement("i"));			
@@ -393,7 +397,6 @@ window.onload = function() {
 
 		//选中该分类
 		active: function() {
-			
 			//将所有分类在页面分类导航栏中的样式设置为未选中
 			this._resetCategories();
 			//在页面分类导航栏中设置该分类为选中样式			
@@ -441,18 +444,29 @@ window.onload = function() {
 			$.click(deleteLink, function(event) {
 				event.preventDefault();
 				event.stopPropagation();
-				var fatherCategoryObj = (that.fatherCategory && that.fatherCategory.categoryObj) || that.system.userData.categories;				
-				for (var i = 0; i < fatherCategoryObj.subCategories.length; i++) {
-					if (fatherCategoryObj.subCategories[i].name === that.name) {
-						fatherCategoryObj.splice(i, 1);
-						break;
+				if (that.fatherCategory) {
+					var fatherCategoryObj = that.fatherCategory.categoryObj;				
+					for (var i = 0; i < fatherCategoryObj.subCategories.length; i++) {
+						if (fatherCategoryObj.subCategories[i].name === that.categoryName) {
+							fatherCategoryObj.subCategories.splice(i, 1);
+							break;
+						}
+					}
+				} else {
+					var fatherCategoryObj = that.system.userData.categories;				
+					for (var i = 0; i < fatherCategoryObj.length; i++) {
+						if (fatherCategoryObj[i].name === that.categoryName) {
+							fatherCategoryObj.splice(i, 1);
+							break;
+						}
 					}
 				}
+				
+				that.system.saveUserData();
 				that.tasksDom.parentNode.removeChild(that.tasksDom);
 				that.navDom.parentNode.removeChild(that.navDom);
 				that.system.defaultCategory.active();
-				that = null;
-				that.saveUserData();			
+				that = null;		
 			});
 		},
 		
