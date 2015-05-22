@@ -115,14 +115,14 @@ window.onload = function() {
 					"subCategories": [],
 					"tasks": []
 					};
-					//实例化分类对象
-					var category = new Category(categoryData, that, that.currentCategory);
 					//如果当前选中的分类是默认分类，由于默认分类不允许有子分类，因而新添加的分类算作应用一级分类。
 					if (that.defaultCategory === that.currentCategory) {
+						var category = new Category(categoryData, that, null);
 						that.categories.push(category);
 						that.userData.categories.push(categoryData);
 						category.render(that.nav);
 					} else {
+						var category = new Category(categoryData, that, that.currentCategory);
 						//如果当前选中的分类不是默认分类，则新添加的分类为当前分类的子类
 						that.currentCategory.subCategories.push(category);
 						that.currentCategory.categoryObj.subCategories.push(categoryData);
@@ -326,6 +326,8 @@ window.onload = function() {
 		//该分类在分类导航栏中对象的dom元素，即分类名称元素。
 		this.navDom = null;
 
+		this.isDefault = false;
+
 		//如果该分类下存在子分类，实例化子分类，并添加到该分类的子分类数组中
 		if (category.subCategories) {
 			for (var i = 0, len = category.subCategories.length; i < len; i++) {
@@ -352,17 +354,13 @@ window.onload = function() {
 		//isDefault代表是否为默认分类
 		render: function(fatherUL,isDefault) {
 			/*在分类导航栏中添加元素*/
-			console.log(fatherUL);
 			var navItem = document.createElement("li");
 			addClass(navItem, "category-item");
 			navItem.appendChild(document.createElement("i"));			
 			var itemName = document.createElement("span");
 			var itemText = document.createElement("p");
-			itemText.innerText = this.categoryName + "(" + this.taskNum + ")";
-			var deleteLink = document.createElement("a");
-			deleteLink.innerText = "删除";
-			itemName.appendChild(itemText);
-			itemName.appendChild(deleteLink);
+			itemText.innerText = this.categoryName + "(" + this.taskNum + ")";			
+			itemName.appendChild(itemText);			
 			navItem.appendChild(itemName);
 			
 			/*添加子分类元素*/
@@ -377,7 +375,12 @@ window.onload = function() {
 
 			/*如果是默认分类，添加id属性*/
 			if (isDefault) {
-				navItem.id = "default";
+				navItem.id = "default";	
+				this.isDefault = true;			
+			} else {
+				var deleteLink = document.createElement("a");
+				deleteLink.innerText = "删除";
+				itemName.appendChild(deleteLink);
 			}
 
 			//添加该元素到页面分类导航栏
@@ -440,34 +443,37 @@ window.onload = function() {
 			});
 
 			/*点击该分类最右侧的删除时，删除分类*/
-			var deleteLink = this.navDom.getElementsByTagName("a")[0];
-			$.click(deleteLink, function(event) {
-				event.preventDefault();
-				event.stopPropagation();
-				if (that.fatherCategory) {
-					var fatherCategoryObj = that.fatherCategory.categoryObj;				
-					for (var i = 0; i < fatherCategoryObj.subCategories.length; i++) {
-						if (fatherCategoryObj.subCategories[i].name === that.categoryName) {
-							fatherCategoryObj.subCategories.splice(i, 1);
-							break;
+			if (!this.isDefault) {
+				var deleteLink = this.navDom.getElementsByTagName("a")[0];
+				$.click(deleteLink, function(event) {
+					event.preventDefault();
+					event.stopPropagation();
+					if (that.fatherCategory) {
+						var fatherCategoryObj = that.fatherCategory.categoryObj;				
+						for (var i = 0; i < fatherCategoryObj.subCategories.length; i++) {
+							if (fatherCategoryObj.subCategories[i].name === that.categoryName) {
+								fatherCategoryObj.subCategories.splice(i, 1);
+								break;
+							}
+						}
+					} else {
+						var fatherCategoryObj = that.system.userData.categories;				
+						for (var i = 0; i < fatherCategoryObj.length; i++) {
+							if (fatherCategoryObj[i].name === that.categoryName) {
+								fatherCategoryObj.splice(i, 1);
+								break;
+							}
 						}
 					}
-				} else {
-					var fatherCategoryObj = that.system.userData.categories;				
-					for (var i = 0; i < fatherCategoryObj.length; i++) {
-						if (fatherCategoryObj[i].name === that.categoryName) {
-							fatherCategoryObj.splice(i, 1);
-							break;
-						}
-					}
-				}
-				
-				that.system.saveUserData();
-				that.tasksDom.parentNode.removeChild(that.tasksDom);
-				that.navDom.parentNode.removeChild(that.navDom);
-				that.system.defaultCategory.active();
-				that = null;		
-			});
+					
+					that.system.saveUserData();
+					that.tasksDom.parentNode.removeChild(that.tasksDom);
+					that.navDom.parentNode.removeChild(that.navDom);
+					that.system.defaultCategory.active();
+					that = null;		
+				});
+			}
+			
 		},
 		
 		//将分类下任务按时间聚合，返回一个对象。对象属性为时间，对应的值为该时间创建的任务对象数组。
